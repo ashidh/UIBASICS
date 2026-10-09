@@ -1,6 +1,6 @@
 const {test,expect} =require('@playwright/test');
 
-test.only('Client App login', async ({page})=>{
+test('Client App login', async ({page})=>{
 
    const Email = 'ashidhachu10@gmail.com';
    await page.goto('https://rahulshettyacademy.com/client/#/auth/login');
