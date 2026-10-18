@@ -11,7 +11,8 @@ test("Popup validations",async({page})=>{
     page.on('dialog',dialog=> dialog.accept());
     await page.locator('#confirmbtn').click();
     await page.locator('#mousehover').hover();
-    await page.getByRole('link', { name: 'Reload' }).click();
-    await page.pause();    
-
+    const framespage = page.frameLocator('#courses-iframe');
+    await framespage.getByRole('link', { name: 'NEW All Access plan' }).click();
+    const textcheck=await framespage.getByRole('heading', { name: 'Join 13,522 Happy Subscibers!' }).textContent();
+    console.log(textcheck.split(" ")[1]);
 })
